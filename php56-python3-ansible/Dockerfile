@@ -1,5 +1,8 @@
 From php:5.6
 
+# 
+# Install Needed Packages
 RUN apt update && \
-    apt install python3 git unzip zip vim python3 python3-pip ansible -y
-
+    apt-get dist-upgrade --dry-run && \
+    apt install git unzip zip vim python3 python3-pip -y && \
+    pip3 install ansible
