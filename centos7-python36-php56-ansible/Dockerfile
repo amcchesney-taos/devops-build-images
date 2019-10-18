@@ -15,3 +15,6 @@ RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm \
 RUN yum install -y git zip unzip vim
 
 RUN pip3 install ansible
+
+ENV LC_ALL=en_US.utf-8
+ENV LANG=en_US.utf-8
