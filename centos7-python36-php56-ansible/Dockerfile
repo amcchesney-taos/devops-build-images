@@ -16,5 +16,9 @@ RUN yum install -y git zip unzip vim
 
 RUN pip3 install ansible
 
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    && chmod +x wp-cli.phar \
+    && mv wp-cli.phar /usr/local/bin/wp
+
 ENV LC_ALL=en_US.utf-8
 ENV LANG=en_US.utf-8
