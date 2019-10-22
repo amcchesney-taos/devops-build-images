@@ -25,6 +25,21 @@ RUN yum install -y git zip unzip vim
 
 RUN pip3 install ansible
 
+
+# Shortcut to reduce build times
+RUN yum install -y \
+      git \
+      unzip \
+      zip \
+      vim \
+      python3 \
+      python3-pip \
+      php \
+      php-xml \
+      php-mbstring \
+      php-intl \
+      php-mysql
+
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chmod +x wp-cli.phar \
     && mv wp-cli.phar /usr/local/bin/wp
