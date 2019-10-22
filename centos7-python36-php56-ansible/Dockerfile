@@ -1,11 +1,20 @@
 From centos:7
 
+# Install deltarpm for faster downloads
+RUN yum install deltarpm -y
+
 # Install PHP
 RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y \
     && yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y \
     && yum install yum-utils -y \
     && yum-config-manager --enable remi-php56 \
     && yum install php -y
+
+
+# Install newer git to allow for depth options
+RUN yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm -y \
+      && yum update -y \
+      && yum install git -y
 
 # Install Python 
 RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm \
