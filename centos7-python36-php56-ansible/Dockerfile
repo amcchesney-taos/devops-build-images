@@ -13,8 +13,9 @@ RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noar
 
 # Install newer git to allow for depth options
 RUN yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm -y \
-      && yum update -y \
-      && yum install git -y
+    && yum update -y \
+    && yum install git -y
+
 
 # Install Python 
 RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm \
@@ -28,17 +29,17 @@ RUN pip3 install ansible
 
 # Shortcut to reduce build times
 RUN yum install -y \
-      git \
-      unzip \
-      zip \
-      vim \
-      python3 \
-      python3-pip \
-      php \
-      php-xml \
-      php-mbstring \
-      php-intl \
-      php-mysql
+    git \
+    unzip \
+    zip \
+    vim \
+    python3 \
+    python3-pip \
+    php \
+    php-xml \
+    php-mbstring \
+    php-intl \
+    php-mysql
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chmod +x wp-cli.phar \
@@ -46,3 +47,9 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 ENV LC_ALL=en_US.utf-8
 ENV LANG=en_US.utf-8
+
+
+#Install GSUtils
+RUN curl https://sdk.cloud.google.com | bash
+
+ENV PATH "$PATH:/root/google-cloud-sdk/bin"
