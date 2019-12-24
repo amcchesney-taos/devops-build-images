@@ -24,3 +24,8 @@ ENV LD_LIBRARY_PATH=/Python-3.6.9/
 
 RUN wget https://bootstrap.pypa.io/get-pip.py  && python3.6 get-pip.py && \
     pip install ansible
+
+#Install GSUtils
+RUN curl https://sdk.cloud.google.com | bash
+
+ENV PATH "$PATH:/root/google-cloud-sdk/bin"
